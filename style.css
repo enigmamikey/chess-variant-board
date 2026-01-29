@@ -1,0 +1,52 @@
+/* Global reset-ish */
+body {
+  margin: 0;
+  padding: 24px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+
+  background-color: #121212;
+  color: #eaeaea;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Title */
+h1 {
+  margin-bottom: 24px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Chess board */
+#board {
+  display: grid;
+  grid-template-columns: repeat(8, 64px);
+  grid-template-rows: repeat(8, 64px);
+
+  border: 2px solid #444;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* Squares */
+.square {
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  user-select: none;
+}
+
+/* Board colors tuned for dark UI */
+.light {
+  background-color: #e6dcc9;
+}
+
+.dark {
+  background-color: #7a5c3d;
+}
