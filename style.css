@@ -1,4 +1,4 @@
-/* Global reset-ish */
+/* ===== Global / Dark mode ===== */
 body {
   margin: 0;
   padding: 24px;
@@ -13,14 +13,80 @@ body {
   align-items: center;
 }
 
-/* Title */
 h1 {
-  margin-bottom: 24px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
+  margin: 0 0 18px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
 }
 
-/* Chess board */
+/* ===== App layout ===== */
+#app {
+  width: min(1100px, 100%);
+  display: grid;
+  grid-template-columns: 260px auto;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Sidebar panels */
+#sidebar .panel {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+#sidebar h2 {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #d7d7d7;
+}
+
+#sidebar button {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  background: #222;
+  color: #eaeaea;
+  cursor: pointer;
+}
+
+#sidebar button:hover {
+  background: #2a2a2a;
+}
+
+/* ===== Palette ===== */
+#palette {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.palette-piece {
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #333;
+  border-radius: 10px;
+  background: #111;
+
+  font-size: 34px;
+  cursor: grab;
+  user-select: none;
+}
+
+.palette-piece:active {
+  cursor: grabbing;
+}
+
+/* ===== Chess board ===== */
 #board {
   display: grid;
   grid-template-columns: repeat(8, 64px);
@@ -28,6 +94,9 @@ h1 {
 
   border: 2px solid #444;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+
+  /* helpful spacing from sidebar */
+  justify-self: start;
 }
 
 /* Squares */
@@ -40,13 +109,89 @@ h1 {
   justify-content: center;
 
   user-select: none;
+  position: relative;
 }
 
 /* Board colors tuned for dark UI */
-.light {
-  background-color: #e6dcc9;
+
+/* The board looks like an awesome wood board with these colors, but it is difficult for the pieces to show up. V2 might go back to this board but mess with the pieces */
+/* .light { 
+  background-color: #d4c7b0; 
+}
+.dark  { 
+  background-color: #6a4f35; 
+} */
+
+/* Purple and blue makes the pieces VERY visible */
+.light { 
+  background-color: purple; 
+  /* border: 1px solid black; */
+}
+.dark  { 
+  background-color: blue; 
+  /* border: 1px solid black; */
 }
 
-.dark {
-  background-color: #7a5c3d;
+
+
+
+
+/* Drop highlight */
+.square.drop-target {
+  outline: 2px solid #66aaff;
+  outline-offset: -2px;
+}
+
+/* ===== Pieces on board ===== */
+.piece {
+  font-size: 40px;
+  cursor: grab;
+  user-select: none;
+} 
+
+.piece:active {
+  cursor: grabbing;
+}
+
+.piece {
+  line-height: 1;
+}
+
+.square, .piece, .palette-piece {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#status {
+  margin: 0 0 16px;
+  font-size: 12px;
+  color: #bdbdbd;
+}
+
+.piece.white {
+  color: #f4f4f4;
+  text-shadow:
+    -1px -1px 0 #111,
+     1px -1px 0 #111,
+    -1px  1px 0 #111,
+     1px  1px 0 #111;
+}
+
+.piece.black {
+  color: #1b1b1b;
+  text-shadow:
+    -1px -1px 0 #f4f4f4,
+     1px -1px 0 #f4f4f4,
+    -1px  1px 0 #f4f4f4,
+     1px  1px 0 #f4f4f4;
+}
+
+#board { gap: 1px; background: #000; padding: 1px; }
+
+#board.flipped {
+  transform: rotate(180deg);
+}
+
+#board.flipped .piece {
+  transform: rotate(180deg);
 }

@@ -6,14 +6,34 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <h1>Variant Chess Board</h1>
+  <div id="status">Connected</div>
 
-  <div id="board"></div>
+  <div id="app">
+    <aside id="sidebar">
+      <div class="panel">
+        <h2>Palette</h2>
+        <div id="palette" aria-label="Piece palette"></div>
+      </div>
+
+      <div class="panel">
+        <h2>Board</h2>
+        <button id="btn-clear">Clear board</button>
+        <button id="btn-standard">Standard setup</button>
+        <button id="btn-flip">Flip board</button>
+      </div>
+    </aside>
+
+    <main>
+      <div id="board"></div>
+    </main>
+  </div>
 
   <!-- Supabase client -->
   <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 
+  <!-- Your app code -->
   <script src="main.js"></script>
 </body>
+
 </html>
