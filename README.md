@@ -5,7 +5,8 @@ A lightweight, realtime, “over-the-board” chess sandbox for experimenting wi
 Unlike a traditional chess UI, this project **does not enforce legal moves or turns**. Any user can move any piece, add extra pieces, or capture by overwrite — similar to what it feels like to play on a physical board, but shared live between two browsers.
 
 ## Live Demo
-(Add link after deployment)
+[https://otbchess.netlify.app](https://otbchess.netlify.app)
+
 
 ## Features
 - Realtime shared board state (Supabase Postgres + Realtime)
