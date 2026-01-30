@@ -124,11 +124,11 @@ h1 {
 
 /* Purple and blue makes the pieces VERY visible */
 .light { 
-  background-color: purple; 
+  background-color: blue; 
   /* border: 1px solid black; */
 }
 .dark  { 
-  background-color: blue; 
+  background-color: purple; 
   /* border: 1px solid black; */
 }
 
