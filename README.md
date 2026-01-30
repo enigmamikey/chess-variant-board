@@ -31,6 +31,10 @@ Chess rule variants are fun, but most online boards assume standard rules and re
 - HTML / CSS / Vanilla JavaScript
 - Supabase (Postgres + Realtime)
 
+## Security
+- Supabase anon public key is used client-side (as intended by Supabase). Access is controlled via Row Level Security policies.
+- V1 is intentionally an open sandbox with a single shared board; rooms and access control would be a natural next step.
+
 ## Notes / Limitations (V1)
 - Single shared public board (no rooms yet)
 - No authentication
